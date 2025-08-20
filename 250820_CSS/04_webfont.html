@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web font</title>
+    <style>
+        /* font family에서 'GowunBatang-Regular'이름으로 사용할 수 있게 됨 */
+        @font-face {
+            font-family: 'GowunBatang-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'BagelFatOne-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .title {
+            font-family: 'BagelFatOne-Regular';
+            background-color: #331B3F;
+            color: #ACC7B4;
+            padding: 10px;
+        }
+        .content {
+            font-family: 'GowunBatang-Regular';
+        }
+
+        body {
+            background-color: #ACC7B4;
+            color: #331B3F;
+            padding: 5px;
+        } 
+    </style>
+</head>
+<body>
+    <h1 class="title">web font</h1>
+    <p class="content">cloud enginering</p>
+    <ul class="content">
+        <li>숭실대학교 Ai융합학부에 재학 중입니다</li>
+        <li>멋쟁이 사자처럼 클라우드 엔지니어링에 참여 중입니다</li>
+    </ul>
+</body>
+</html>
