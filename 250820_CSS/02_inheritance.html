@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inheritance</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 16px;
+            color: #333; /*색상을 16진수(0~f)로 표현*/
+            line-height: 1.6;
+        }
+
+        /* 상속 실습 */
+        .ancestor {
+            color: green;
+            font-size: 18px;
+        }
+
+        .child {
+            font-family:monospace;
+        }
+
+        .grandchild {
+            color: red; /*클래스와 가장 가까움. 따라서 덮어씌워짐*/
+        }
+
+
+        .ancestor-box {
+            border: 2px solid orange;
+            color:aqua;
+            padding: 10px; /*자식에게 상속되지 않음!*/
+            /* 전반적인 shape 관련한 속성들은 자식에게 상속되지 않음 */
+        }
+
+        .child-box {
+            border: 2px solid blue;
+        }
+
+
+        /* 크기 */
+        html {
+            font-size: 16px; /*이게 디폴트. 고정.*/
+        }
+
+        .sizes p {
+            margin: 0.3em 0; /*위아래에 0.3em, 오른쪽왼쪽 0em만큼 여백*/
+        }
+
+        .px {
+            font-size: 24px;
+        }
+
+        .em {
+            font-size: 2em; /*직전 부모 사이즈의 *2*/
+        }
+
+        .rem {
+            /* html : 모든 것의 최상위 root (:root로 정의되기도 함) */
+            /* .html 에 비례하여 바뀜 (html 이외의 상위 부모는 상관없어!) */
+            font-size: 2rem;
+        }
+
+        .percent {
+            font-size: 200%;
+        }
+        
+        
+        /* em vs rem */
+        .parent {
+            font-size: 20px;
+            background-color: aquamarine;
+            padding: 8px;
+        }
+
+        .child-em {
+            font-size: 2em;
+            padding: 2em; /*padding도 적용됨!*/
+        }
+
+        .child-rem {
+            font-size: 2rem; /*html에서의 2배*/
+            padding: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+    상속
+    상속
+    <!-- 줄바꿈을 그냥 스페이스로 처리함 -->
+    <!-- div: 구분된 block. 감싸주는 데 특화된 tag -->
+    <div>상속</div>
+    <div>상속</div>
+    <!-- 위아래 여백 없음 -->
+    <p>상속</p>
+    <p>상속</p>
+    <!-- 위아래 여백 있음 -->
+    <!-- emmet 약어: div.ancestor>div.child>div.grandchild -->
+    <div class="ancestor">
+        조상 div (.ancestor)
+        <div class="child">
+            자손 div (.child)
+            <div class="grandchild">손자 div (.grandchild)
+            </div>
+        </div>
+    </div>
+
+    <!-- emmet: div.ancestor-box{border 속성은 상속되지 않음}>div.child-box{자식 div엔 border 없음} -->
+    <div class="ancestor-box">border 속성은 상속되지 않음
+        <div class="child-box">자식 div엔 border 없음</div>
+    </div>
+
+    <br/>
+    <br/>
+
+    <div>
+        <p class="px">px 절대크기</p>
+        <p class="em">em 상대크기</p>
+        <p class="rem">rem html기준</p>
+        <p class="percent">% 부모대비</p>
+    </div>
+
+
+    <div>
+        <h2>em과 rem</h2>
+        <div class="parent">
+            부모(.parent) font-size: 20px
+            <p class="child-em">2em - 40px</p>
+            <p class="child-rem">2rem - 32px</p>
+        </div>
+    </div>
+</body>
+</html>
