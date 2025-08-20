@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boxmodel</title>
+    <style>
+        .demo {
+            background: white;
+            /* border(외곽선): 두께 모양 색상 */
+            border: 1px solid gray;
+            margin-bottom: 40px;
+            /* top right bottom left (시계방향) */
+            padding: 20px;
+        }
+
+        .box { /*div는 대표적인 box*/
+            /* block -> 한 줄을 모두 가짐 */
+            /* inline -> 부분적으로만 적용 받음 */
+            background: lightblue;
+            width: 200;
+            height: 100;
+            border: 3px solid navy;
+            padding: 20px; /*width, height는 그대로고 그 바깥에 padding이 있어서 커짐*/
+            margin: 20px; 
+        }
+
+        .collapse p {
+            background: lightgreen;
+            /* margin, padding : 1개 전체 적용 */
+            /* margin: x, y -> 세로로 x만큼, 가로로 y만큼 */
+            /* 4개를 넣으면 top부터 상,우,하,좌로 적용 */
+            /* margin: 20px, 0; */
+            /* margin vs padding */
+            padding: 20px, 0;
+        }
+
+
+        .content-box {
+            box-sizing: content-box;
+            border: 5px solid red;
+            /* width: ; */
+            /* padding: ; */
+            background: pink;
+            /* margin: ; */
+        }
+        .border-box {
+            box-sizing: border-box;
+            border: 5px solid blue;
+            /* width: ; */
+            /* padding: ; */
+            background: lightyellow;
+            /* margin: ; */
+        }
+    </style>
+
+<body>
+    <div class="demo">
+        <h2>기본 박스 모델</h2>
+        <div class="box">contents</div>
+        <ul>
+            <li>content</li>
+            <li>padding</li>
+            <li>border</li>
+            <li>margin</li>
+        </ul>
+    </div>
+
+
+    <div class="demo collapse">
+        <h2>margin collapse</h2>
+        <p>단락1</p>
+        <p>단락2</p>
+        <p>단락3</p>
+        <p>상쇄 되는지 보세요</p>
+    </div>
+
+    <div class="demo">
+        <h2>3. box-sizing</h2>
+        <div class="content-box">content-box</div>
+        <div class="border-box">border-box</div>
+
+    </div>
+</body>
+</html>
