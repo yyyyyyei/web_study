@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS 선택자, property(속성)</title>
+    <!-- CSS 적용 방법 -->
+    <!-- 1. html 안에서 <style>ㅌ ㅐ그를 사용. 내부 스타일시트 -->
+    <!-- 2. 인라인방식: <li style="color: red;"> 유지보수 극악. 옛날에나 씀-->
+    <!-- -적용되는 명시도, 특이도가 높아서 거의 무조건 적용됨 -->
+    <!-- -급하게 수정할 때 좋은 방식 -->
+    <!-- 3. 외부 스타일시트 방식 -->
+    <!-- style.css -->
+
     <style>
         /*
         선택자 {
@@ -26,7 +34,47 @@
         strong {
             color: pink;
         }
+        input {
+            font-size: 20px;
+        }
+        input {
+            font-size: 24px; /*동일한 우선도이면 뒤에 나오는 게 덮어씀*/
+        }
+        input[type="password"] {
+            font-size: 10px;
+        }
+        a[target="_blank"] {
+            text-decoration: underline;
+        }
+
+        /* 결합자 */
+        .section {
+            /* 경계선 만들기 */
+            border: 1px solid black
+        }
+        .section .note {
+            color: grey;
+        }
+        /* 소속된 모든 요소 (직계 후손 아니여도 적용 가능) */
+        .section > .note {
+            background-color: lightyellow;
+        }
+        /* 직계 후손만 적용. 바로 속한 경우. */
+        h3 + p {
+            font-style: italic;
+            font-weight: bold;
+        }
+        /* h3 바로 다음 p */
+        h3 ~ p {
+            color: blue;
+        }
+        /* h3 뒤 모든 p */
+        h3, p {
+            font-size: 20px;
+        }
+        /* h3도 적용시키려면.. */
     </style>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
     <!-- CSS -> 선택이 중요함 HTML과 별도로 존재가 가능 -->
@@ -38,5 +86,39 @@
     <p class="lead">재사용을 위한 클래스 예시2</p>
     <p id="brand" class="lead">id, class의 경합 시 id가 우선(색상:빨간색)</p>
     <strong>tag에도 적용 가능이양</strong>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <label>
+        <input type="text" placeholder="id"/>
+    </label>
+    <label>
+        <input type="password" placeholder="password"/>
+    </label>
+    <p>
+        <!-- _blank: 새 창 띄우기 -->
+         <a href="https://naver.com" target="_blank">네이버로 새 창 링크</a>
+         <a href="https://naver.com" target="_self">네이버로 현재 창 바꾸기</a>
+    </p>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <!-- 결합자 -->
+    <section class="section">
+        <div class="note">
+            나는 .section의 자식인 .note야 (바로 직계)
+        </div>
+        <div>
+            <div class="note">
+            나는 .section의 자식인 .note야 (바로 직계가 아님)
+        </div>
+        </div>
+        <h3>title3</h3>
+        <p>이 단락은 h3바로 다음</p>
+        <p>이 단락은 h3 뒤쪽 모든 형제(~, 같은 요소 소속인 요소들)</p>
+    </section>
 </body>
 </html>
