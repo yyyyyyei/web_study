@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 선택자, property(속성)</title>
+    <style>
+        /*
+        선택자 {
+            속성: 값;
+        }
+        */
+        /* #: id임을 의미 */
+        #brand {
+            color: red;
+        }
+        /* 
+        .class명 {
+            속성: 값;
+        }
+        */
+        .lead {
+            font-size: 20px;
+            color: green
+        }
+        strong {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- CSS -> 선택이 중요함 HTML과 별도로 존재가 가능 -->
+    <h1 id="brand">id:구별을 위한 선택자. 1개만 존재하는 것을 권장</h1>
+    <p id="brand">p에 또 똑같은 id를 적용했을 때.. -> id에 해당하는 style 여기도 적용됨</p>
+    <p>id는 여러 개에 적용하려고 쓰는게 아님.. 하나에만 쓰려고 하는거</p>
+    <p>여러 개에 같은 속성을 적용시키려면 class 사용</p>
+    <p class="lead">재사용을 위한 클래스 예시</p>
+    <p class="lead">재사용을 위한 클래스 예시2</p>
+    <p id="brand" class="lead">id, class의 경합 시 id가 우선(색상:빨간색)</p>
+    <strong>tag에도 적용 가능이양</strong>
+</body>
+</html>
